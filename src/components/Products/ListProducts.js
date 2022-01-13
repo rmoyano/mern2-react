@@ -2,6 +2,7 @@ import React from "react";
 import { Row } from "react-bootstrap";
 import json from "../../examples/products.json";
 import { Product } from "./Product";
+import db from "../../app/db";
 
 export const ListProducts = () => {
   const products = json.products;

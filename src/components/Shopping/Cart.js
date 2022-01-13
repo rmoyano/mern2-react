@@ -1,7 +1,7 @@
 import { useLiveQuery } from "dexie-react-hooks";
 import React, { useEffect, useState } from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import db from "../../app/db";
 import { CartItem } from "./CartItem";
 
@@ -17,7 +17,8 @@ export const Cart = () => {
   useLiveQuery(async () => {
     const productsDB = await db.cart.toArray();
     setProductsCart(productsDB);
-  }, []);
+  });
+  //}, []);
 
   useEffect(() => {
     if (productsCart.length > 0) {
@@ -38,10 +39,10 @@ export const Cart = () => {
               {productsCart?.map((product) => {
                 return <CartItem key={product.id} item={product} />
               })}
-            <NavDropdown.Divider />
+            {/*<NavDropdown.Divider />
             <NavDropdown.Item>
-              <Link to={"/purchase"}>Total: ${totalPrice} </Link>
-            </NavDropdown.Item>
+             {/* <Link to={"/purchase"}>Total: ${totalPrice} </Link>
+            </NavDropdown.Item>*/}
            </NavDropdown>
         </Nav>
       </Navbar.Collapse>
