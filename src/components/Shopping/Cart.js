@@ -4,6 +4,7 @@ import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 //import { Link } from "react-router-dom";
 import db from "../../app/db";
 import { CartItem } from "./CartItem";
+import { Link } from "react-router-dom";
 
 export const Cart = () => {
   const [productsCart, setProductsCart] = useState([]);
@@ -39,10 +40,14 @@ export const Cart = () => {
               {productsCart?.map((product) => {
                 return <CartItem key={product.id} item={product} />
               })}
-            {/*<NavDropdown.Divider />
+            <NavDropdown.Divider />
             <NavDropdown.Item>
-             {/* <Link to={"/purchase"}>Total: ${totalPrice} </Link>
-            </NavDropdown.Item>*/}
+             
+              <Link to={"/purchase"}>
+                Total: $ {totalPrice}
+              </Link>   
+
+            </NavDropdown.Item>
            </NavDropdown>
         </Nav>
       </Navbar.Collapse>

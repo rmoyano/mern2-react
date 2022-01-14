@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
-import { getAllProducts } from "../../app/services/productsServices";
+import { getAllProducts } from "../../app/productServices";
 
 export const CartDetail = () => {
   const [products, setProducts] = useState([]);
@@ -12,13 +12,13 @@ export const CartDetail = () => {
     }, 0);
     setTotalPrice(total);
   };
-
+  
   useEffect(() => {
-    getAllProducts().then((allProductsFromDB) => {
-      if (allProductsFromDB.length > 0) {
-        getTotalPrice(allProductsFromDB);
+    getAllProducts().then((allProducts) => {
+      if (allProducts.length > 0) {
+        getTotalPrice(allProducts);
       }
-      setProducts(allProductsFromDB);
+      setProducts(allProducts);
     });
   }, []);
 
@@ -27,7 +27,7 @@ export const CartDetail = () => {
       <thead>
         <tr>
           <th>#</th>
-          <th>Title</th>
+          <th>Product</th>
           <th>Category</th>
           <th>Price</th>
         </tr>

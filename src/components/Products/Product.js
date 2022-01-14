@@ -43,7 +43,7 @@ export const Product = ({ item }) => {
         </Col>
       </Row>
       <Row>
-        <Col xs={12}>
+        <Col xs={8}>
           <img height={ imgprod.height } width={ imgprod.width } alt="" src={image}></img>
         </Col>
       </Row>
